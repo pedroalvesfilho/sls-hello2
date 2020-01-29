@@ -22,7 +22,7 @@ Click in Get V -> We need to indicate the 'Lambda Function'. For this:
 Click in Services -> Lambda -> AWS Lambda -> Create function -> Author from scratch
 	-> Basic information: Function name:  hello
 	-> Choose or create an execution role -> Create a new role with basic Lambda permissions
-	-> Create function  --> arn:aws:lambda:us-east-1:913243346481:function:hello
+	-> Create function  --> arn:aws:lambda:us-east-1:993243346499:function:hello
 	-> Save (hello function)
 Now, back to API:
 API Gateway -> Select "Test Demo/Hello API"
@@ -42,8 +42,8 @@ exports.handler = async (event) => {
 
 https://serverless.com/learn/tutorial/create-api-endpoint-with-serverless-framework/
 
-$ mkdir hello
-$ cd hello
+$ mkdir sls-hello2
+$ cd sls-hello2
 $ serverless create --template aws-nodejs
 
 ---
@@ -86,13 +86,13 @@ Automatic deployments are disabled. -> enable <<== click enable
 
 https://dashboard.serverless.com/tenants/pxxx45/applications/myapxx/settings/stages
 
-add stage  ==> stage name: sls
+add stage  ==> stage name: dev
 
 $ serverless --org palvxxx --app hello2
 $ sls deploy -v
 
 
----Create IAM User: 
+---To create IAM User: 
 
 https://console.aws.amazon.com/iam/home?region=us-east-1#/users
 Create policy -> Policy actions -> Attach -  AdministratorAccess (Checked V)
