@@ -1,7 +1,7 @@
 2020-01-27
 -------------
 
-Folder: serverless/hello2
+Folder: serverless/sls-hello2
 
 ### Building serverless endpoint manually
 Build API Gateway endpoint manually by using the AWS console to put together this API endpoints that will trigger a Lambda function:
