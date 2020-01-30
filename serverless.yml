@@ -12,8 +12,10 @@
 # Happy Coding!
 #  https://dashboard.serverless.com/tenants/palves1945/applications/
 
-app: hello2
-org: palves1945
+# custom-resource-apigw-cw-role
+# https://forum.serverless.com/t/lambda-created-custom-resource-apigw-cw-role-what-is-it/9529/2
+# app: hello2
+# org: palves1945
 service: hello2
 
 # app and org for use with dashboard.serverless.com
@@ -61,8 +63,11 @@ provider:
 #    - exclude-me.js
 #    - exclude-me-dir/**
 
+
+# hello2-dev-hello:  # Function not found
 functions:
-  hello:
+  # hello:
+  hello2:
     handler: handler.hello
     events:
       - http:

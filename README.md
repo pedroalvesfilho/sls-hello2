@@ -26,10 +26,13 @@ Click in Services -> Lambda -> AWS Lambda -> Create function -> Author from scra
 	-> Save (hello function)
 Now, back to API:
 API Gateway -> Select "Test Demo/Hello API"
-/hello -> GET -> Lambda function: hello -> Save --> And we should have an API Gateway: 
+Resource Name: Hello2, Resource Path: /hello2
+-> Create resource
+Create Method: GET (V)-> Lambda function: hello2-dev-hello -> Save --> And we should have an API Gateway:
+You are about to give API Gateway permission to invoke your Lambda function:
+arn:aws:lambda:us-east-1:913243346481:function:hello2-dev-hello
 
-
-
+e.g. --- example only:
 exports.handler = async (event) => {
     // TODO implement
     const response = {
@@ -38,7 +41,7 @@ exports.handler = async (event) => {
     };
     return response;
 };
-
+See file `handler.js` inside folder `sls-hello2`.
 
 https://serverless.com/learn/tutorial/create-api-endpoint-with-serverless-framework/
 
@@ -88,7 +91,12 @@ https://dashboard.serverless.com/tenants/pxxx45/applications/myapxx/settings/sta
 
 add stage  ==> stage name: dev
 
-$ serverless --org palvxxx --app hello2
+$ serverless --org palvxxx --app 
+
+To deploy, first export the credentials:
+$ export aws_access_key_id=01IA5JIMLSYYX2FLH220
+$ export aws_secret_access_key=01pl7qL9PVrSSMVjrUOG0/vaGd7e8qNVl+NpLs40
+
 $ sls deploy -v
 
 
@@ -116,12 +124,31 @@ endpoints:
 functions:
   hello: hello2-dev-hello
 
-
 --serverless.yml:
+# custom-resource-apigw-cw-role
+# https://forum.serverless.com/t/lambda-created-custom-resource-apigw-cw-role-what-is-it/9529/2
+# app: hello2
+# org: palves1945
+Comment `app:` and `org:` to not get  custom-resource-apigw-cw-role error.
 app: hello2
 org: palves1945
 service: hello2
 --------
 
-
+---------2020-01-29:
+Service Information
+service: hello2
+stage: dev
+region: us-east-1
+stack: hello2-dev
+resources: 11
+api keys:
+  None
+endpoints:
+  GET - https://tmbd3zz7kb.execute-api.us-east-1.amazonaws.com/dev/hello2
+functions:
+  hello2: hello2-dev-hello2
+layers:
+  None
+----------
 
